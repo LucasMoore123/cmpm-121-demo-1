@@ -4,6 +4,8 @@ const app: HTMLDivElement = document.querySelector("#app")!;
 
 const gameName = "Lucas' Kitchen";
 const buttonName = "🍲";
+const upgrade_one = "Customer👨🏽(+1 meal per second)";
+let increasePerSecond: number = 0; // Number to increase
 
 document.title = gameName;
 
@@ -19,10 +21,22 @@ count.style.fontSize = "2em";
 count.innerHTML = total_meals + " Meals Created!";
 app.append(count);
 
-// button creation
+// gain button creation
 const button = document.createElement("button");
 button.textContent = buttonName;
 app.append(button);
+
+// upgrade button creation
+const upgrade_button_one = document.createElement("button");
+upgrade_button_one.textContent = upgrade_one;
+app.append(upgrade_button_one);
+
+// upgrade button onClick event
+upgrade_button_one.disabled = true;
+upgrade_button_one.addEventListener("click", () => {
+  total_meals -= 10;
+  increasePerSecond += 1;
+});
 
 // counter gain logic/updating
 const gain_per_click: number = 1;
@@ -38,9 +52,13 @@ function updateCounter() {
 
 // automatic counter
 function automaticCounter() {
-  const increasePerSecond = 1; // Number to increase
   let lastTimestamp = performance.now() / 1000; // Initial timestamp
   function increaseCounter() {
+    if (total_meals < 10) {
+      upgrade_button_one.disabled = true;
+    } else {
+      upgrade_button_one.disabled = false;
+    }
     const currentTimestamp = performance.now() / 1000; // Latest timestamp
     const deltaTime = currentTimestamp - lastTimestamp; // Difference
     total_meals += increasePerSecond * deltaTime; // Fraction to increase by

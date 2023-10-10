@@ -27,6 +27,14 @@ app.append(button);
 // counter gain logic/updating
 const gain: number = 1;
 button.addEventListener("click", () => {
-    counter = counter + gain;
-    count.innerHTML = counter + " Meals Created!";
+    updateCounter();
 });
+
+// counter updating function
+function updateCounter(){
+    counter += gain;
+    count.innerHTML = counter + " Meals Created!";
+}
+
+// counter automatic +1
+setInterval(updateCounter, 1000);

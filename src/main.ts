@@ -37,10 +37,10 @@ function updateCounter() {
 }
 
 // automatic counter
-function automaticCounter(){
+function automaticCounter() {
   const increasePerSecond = 1; // Number to increase
   let lastTimestamp = performance.now() / 1000; // Initial timestamp
-  function increaseCounter(){
+  function increaseCounter() {
     const currentTimestamp = performance.now() / 1000; // Latest timestamp
     const deltaTime = currentTimestamp - lastTimestamp; // Difference
     total_meals += increasePerSecond * deltaTime; // Fraction to increase by

@@ -42,6 +42,20 @@ const availableItems: Item[] = [
     increase_per: 50,
     description: "Does he actually do any work?",
   },
+  {
+    name: "Delivery Service🚚",
+    cost: 10000,
+    units_bought: 0,
+    increase_per: 1000,
+    description: "Like doordash, but better.",
+  },
+  {
+    name: "Franchising🏪",
+    cost: 100000,
+    units_bought: 0,
+    increase_per: 20000,
+    description: "More is better, right?",
+  },
 ];
 
 // GAME TITLE CREATION

@@ -104,7 +104,7 @@ function createUpgradeButton(item: Item): void {
   newButton.addEventListener("click", () => {
     total_meals -= item.cost;
     increasePerSecond += item.increase_per;
-    item.cost *= 1.15;
+    item.cost *= 1.15; // FORGOT TO COMMIT THIS SEPARATELY
     item.units_bought += 1;
     newButton.innerHTML =
       item.name +
